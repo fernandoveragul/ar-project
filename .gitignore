@@ -1,0 +1,6 @@
+*env/
+*idea*
+*pycache*
+*.py[cod]
+.env
+
