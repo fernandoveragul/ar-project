@@ -1,0 +1,12 @@
+<CameraClick>:
+    orientation: 'vertical'
+    Camera:
+        id: camera
+        resolution: (640, 480)
+        play: False
+    ToggleButton:
+        id: toggle_button
+        text: 'Включить'
+        on_press: root.on_play()
+        size_hint_y: None
+        height: '48dp'
