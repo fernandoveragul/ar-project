@@ -4,15 +4,10 @@ https://github.com/kivy/buildozer
 
 
 Установка buildozer:
-# via pip (latest stable, recommended)
-# if you use a virtualenv, don't use the `--user` option
 `pip install --user buildozer`
 
-# latest dev version
-# if you use a virtualenv, don't use the `--user` option
 `pip install --user https://github.com/kivy/buildozer/archive/master.zip`
 
-# git clone, for working on buildozer
 `git clone https://github.com/kivy/buildozer
 cd buildozer
 python setup.py build
@@ -32,7 +27,6 @@ pip install -e .`
 sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
 pip3 install --user --upgrade Cython==0.29.33 virtualenv  # the --user should be removed if you do this in a venv`
 
-# add the following line at the end of your ~/.bashrc file
 `export PATH=$PATH:~/.local/bin/`
 
 Наконец, подключите свое Android-устройство и запустите:
