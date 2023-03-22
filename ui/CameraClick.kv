@@ -4,9 +4,9 @@
         id: camera
         resolution: (640, 480)
         play: False
-    ToggleButton:
+    MDRectangleFlatButton:
         id: toggle_button
         text: 'Включить'
         on_press: root.on_play()
-        size_hint_y: None
+        pos_hint: {"center_x": .5, "center_y": .5}
         height: '48dp'

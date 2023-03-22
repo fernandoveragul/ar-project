@@ -1,4 +1,4 @@
-from kivy.app import App
+from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 
@@ -11,11 +11,11 @@ class CameraClick(BoxLayout):
         toggle_button.text = 'Выключить' if camera.play else 'Включить'
 
 
-class TestCamera(App):
+class TestCamera(MDApp):
     def build(self):
         return CameraClick()
 
 
 if __name__ == '__main__':
-    Builder.load_file('ui.kv')
+    Builder.load_file('../ui/CameraClick.kv')
     TestCamera().run()
