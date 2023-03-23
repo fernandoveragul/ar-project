@@ -9,6 +9,9 @@ license = "MIT"
 python =  ">=3.10,<3.12"
 opencv-python = "^4.7.0"
 Kivy = "^2.1.0"
+qrcode = {extras = ["pil"], version = "^7.4.2"}
+pyzbar = "^0.1.9"
+numpy = "^1.24.2"
 
 [tool.poetry.dev-dependencies]
 
