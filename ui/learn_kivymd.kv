@@ -1,0 +1,25 @@
+MDScreen:
+    MDCard:
+        orientation: 'vertical'
+        padding: 0, 0, 0, '48dp'
+        size_hint: .5, .5
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        elevation: 2
+
+        MDLabel:
+            text: f'Theme style 12345 - {app.theme_cls.theme_style}'
+            halign: 'center'
+            valign: 'center'
+            bold: True
+            font_style: 'H5'
+
+        MDLabel:
+            text: f'Theme style 12345'
+            halign: 'center'
+            valign: 'top'
+            font_style: 'Inter'
+
+        MDRaisedButton:
+            text: 'Change theme'
+            on_release: app.change_theme_style()
+            pos_hint: {'center_x': 0.5}
