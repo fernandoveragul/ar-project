@@ -1,0 +1,40 @@
+<Content>
+    orientation: 'vertical'
+    spacing: "12dp"
+    size_hint_y: None
+    height: "250dp"
+
+    MDTextField:
+        hint_text: 'Логин'
+
+    MDTextField:
+        hint_text: 'Пароль'
+
+    MDRaisedButton:
+        text: 'Войти'
+        on_press:
+            app.dialog_close()
+            app.show_alert_error_dialog()
+
+    MDRaisedButton:
+        text: 'Перейти на сайт'
+
+
+MDBoxLayout:
+    orientation: 'vertical'
+
+    MDCard:
+        orientation: 'vertical'
+        size_hint: 1, 1
+        md_bg_color: 'blue'
+
+        MDLabel:
+            text: 'Camera'
+            font_style: 'H2'
+            pos_hint: {'center_x': 0.5}
+
+    MDRaisedButton:
+        text: 'Включить камеру'
+        pos_hint: {'center_x': 0.5}
+        font_size: '20sp'
+        on_release: app.show_alert_dialog_authorization()
