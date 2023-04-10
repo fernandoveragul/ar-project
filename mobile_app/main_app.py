@@ -4,31 +4,33 @@ from kivy.core.window import Window
 
 from kivymd.app import MDApp
 from kivymd.uix.dialog import MDDialog
-from kivymd.uix.button import MDFlatButton, MDRaisedButton
+from kivymd.uix.button import MDRaisedButton
+from kivymd.uix.screenmanager import MDScreenManager
+from kivymd.uix.screen import MDScreen
+
+from profile_screen import ProfileScreen
 
 
 class Content(BoxLayout):
     pass
 
 
-class StartWindow(MDApp):
-    dialog = None
+class StartScreen(MDScreen):
+    pass
 
-    # access_dialog = MDDialog(
-    #     title='Access text',
-    #     buttons=[
-    #         MDFlatButton(
-    #             text='Перейти к маршруту'
-    #         )
-    #     ]
-    # )
+
+class MainApp(MDApp):
+    dialog = None
+    sm = MDScreenManager()
 
     def build(self):
         self.theme_cls.theme_style = 'Light'
         self.theme_cls.primary_palette = 'Indigo'
-        return Builder.load_file('../ui/StartWindow.kv')
+        self.sm.add_widget(StartScreen(name='start_screen'))
+        self.sm.add_widget(ProfileScreen(name='profile_screen'))
+        return self.sm
 
-    def dialog_close(self):
+    def close_dialog(self):
         self.dialog.dismiss(force=True)
         self.dialog = None
 
@@ -54,4 +56,6 @@ class StartWindow(MDApp):
 
 if __name__ == '__main__':
     Window.size = (360, 740)
-    StartWindow().run()
+    Builder.load_file('../ui/StartScreen.kv')
+    Builder.load_file('../ui/ProfileScreen.kv')
+    MainApp().run()
