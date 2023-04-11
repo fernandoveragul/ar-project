@@ -1,0 +1,45 @@
+<AuthorizationScreen>
+    MDBoxLayout:
+        adaptive_height: True
+        pos_hint: {'center_y': .5}
+        orientation: 'vertical'
+        spacing: 10
+        padding: 10
+
+        MDTextField:
+            hint_text: 'Логин'
+
+        MDTextField:
+            hint_text: 'Пароль'
+
+        MDRaisedButton:
+            text: 'Войти'
+            size_hint: 1, 0
+            on_release: app.show_alert_error_dialog()
+
+        MDRaisedButton:
+            id: button_website
+            text: 'Перейти на сайт'
+            size_hint: 1, 0
+
+<AccessContent>
+    orientation: 'vertical'
+    size_hint: 1, None
+    height: 50
+
+    MDRaisedButton:
+        text: 'Перейти к маршрутам'
+        size_hint_x: 1
+        on_release:
+            app.close_dialog()
+            app.screen_manager.current = 'profile_screen'
+
+<ErrorContent>
+    orientation: 'vertical'
+    size_hint: 1, None
+    height: 50
+
+    MDRaisedButton:
+        text: 'Понятно'
+        size_hint_x: 1
+        on_release: app.close_dialog()

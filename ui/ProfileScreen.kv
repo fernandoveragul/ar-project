@@ -14,7 +14,7 @@
         MDDropDownItem:
             id: drop_item
             pos_hint: {'center_x': 0.5, 'center_y': 0.6}
-            text: 'Item 0'
+            text: 'Маршрут 1'
             on_release: root.menu.open()
             size_hint: 1, 0
 
@@ -25,3 +25,4 @@
         MDRaisedButton:
             text: 'Вернуться'
             size_hint: 1, 0
+            on_release: app.screen_manager.current = 'start_screen'

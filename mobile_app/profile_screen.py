@@ -1,6 +1,5 @@
 from kivy.lang import Builder
 from kivy.core.window import Window
-from kivy.metrics import dp
 
 from kivymd.app import MDApp
 from kivymd.uix.menu import MDDropdownMenu
@@ -12,22 +11,24 @@ class ProfileScreen(MDScreen):
         super().__init__(**kwargs)
         menu_items = [
             {
-                "viewclass": "MDLabel",
-                "text": f"Item {i}",
-                "height": dp(30),
-                "on_release": lambda x=f"Item {i}": self.set_item(x),
+                "viewclass": "OneLineListItem",
+                "text": f"Маршрут {i+1}",
+                "height": 50,
+                "on_release": lambda x=f"Маршрут {i+1}": self.set_item(x),
             } for i in range(5)
         ]
+
         self.menu = MDDropdownMenu(
             caller=self.ids.drop_item,
             items=menu_items,
             position="center",
-            width_mult=4
+            width_mult=4,
+            max_height=155
         )
         self.menu.bind()
 
     def set_item(self, text_item):
-        self.screen.ids.drop_item.set_item(text_item)
+        self.ids.drop_item.set_item(text_item)
         self.menu.dismiss()
 
 
