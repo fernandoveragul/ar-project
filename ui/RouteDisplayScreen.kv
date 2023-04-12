@@ -1,0 +1,17 @@
+<RouteDisplayScreen>
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        MDCard:
+            md_bg_color: 'blue'
+            orientation: 'vertical'
+
+            MDLabel:
+                text: 'Show route'
+
+        MDRaisedButton:
+            size_hint: 1, 0
+            text: 'Вернуться'
+            on_release: app.screen_manager.current = 'profile_screen'

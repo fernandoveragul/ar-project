@@ -8,6 +8,7 @@ from kivymd.uix.screenmanager import MDScreenManager
 from start_screen import StartScreen
 from profile_screen import ProfileScreen
 from authorization_screen import AuthorizationScreen, AccessContent, ErrorContent
+from route_display_screen import RouteDisplayScreen
 
 
 class MainApp(MDApp):
@@ -40,8 +41,9 @@ class MainApp(MDApp):
         self.theme_cls.theme_style = 'Light'
         self.theme_cls.primary_palette = 'Indigo'
         self.screen_manager.add_widget(StartScreen(name='start_screen'))
-        self.screen_manager.add_widget(ProfileScreen(name='profile_screen'))
         self.screen_manager.add_widget(AuthorizationScreen(name='authorization_screen'))
+        self.screen_manager.add_widget(ProfileScreen(name='profile_screen'))
+        self.screen_manager.add_widget(RouteDisplayScreen(name='route_display_screen'))
         return self.screen_manager
 
 
@@ -50,4 +52,5 @@ if __name__ == '__main__':
     Builder.load_file('../ui/StartScreen.kv')
     Builder.load_file('../ui/ProfileScreen.kv')
     Builder.load_file('../ui/AuthorizationScreen.kv')
+    Builder.load_file('../ui/RouteDisplayScreen.kv')
     MainApp().run()
