@@ -1,5 +1,23 @@
 import cv2
-img = cv2.imread("qrcode6.jpg")
-detector = cv2.QRCodeDetector()
-data, _, _ = detector.detectAndDecode(img)
-print(f"QRCode data:\n{data}")
+import numpy as np
+from pyzbar.pyzbar import decode
+cap = cv2.VideoCapture(0)
+cap.set(3,640)
+cap.set(4,480)
+while True:
+    req, img = cap.read()
+    for barcode in decode(img):
+        myData = barcode.data.decode('utf-8')
+        pts = np.array([barcode.polygon],np.int32)
+        pts = pts.reshape((-1,1,2))
+        cv2.polylines(img,[pts], True,(255,0,0,5))
+        print(myData)
+        if myData is not None:
+            exit = True
+        else: exit = False
+    if exit == True:
+        break
+    cv2.imshow("img", img)
+    cv2.waitKey(1)
+cap.release()
+cv2.destroyAllWindows()
