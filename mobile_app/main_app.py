@@ -1,5 +1,6 @@
 from kivy.lang.builder import Builder
 from kivy.core.window import Window
+from kivy.clock import Clock
 
 from kivymd.app import MDApp
 from kivymd.uix.dialog import MDDialog
@@ -14,6 +15,10 @@ from route_display_screen import RouteDisplayScreen
 class MainApp(MDApp):
     screen_manager = MDScreenManager()
     dialog = None
+
+    def __init__(self):
+        super().__init__()
+        self.start_screen = None
 
     def close_dialog(self):
         self.dialog.dismiss()
@@ -40,11 +45,15 @@ class MainApp(MDApp):
     def build(self):
         self.theme_cls.theme_style = 'Light'
         self.theme_cls.primary_palette = 'Indigo'
-        self.screen_manager.add_widget(StartScreen(name='start_screen'))
+        self.start_screen = StartScreen(name='start_screen')
+        self.screen_manager.add_widget(self.start_screen)
         self.screen_manager.add_widget(AuthorizationScreen(name='authorization_screen'))
         self.screen_manager.add_widget(ProfileScreen(name='profile_screen'))
         self.screen_manager.add_widget(RouteDisplayScreen(name='route_display_screen'))
         return self.screen_manager
+
+    def on_start(self):
+        Clock.schedule_interval(lambda x: self.start_screen.change_img(), 0.3)
 
 
 if __name__ == '__main__':

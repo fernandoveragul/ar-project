@@ -6,7 +6,11 @@ from kivymd.uix.screen import MDScreen
 
 
 class StartScreen(MDScreen):
-    pass
+    num_photo = 1
+
+    def change_img(self):
+        self.num_photo = self.num_photo % 3 + 1
+        self.ids.photos.source = f'../img/{self.num_photo}.jpg'
 
 
 class StartApp(MDApp):
@@ -16,5 +20,5 @@ class StartApp(MDApp):
 
 if __name__ == '__main__':
     Window.size = (360, 740)
-    Builder.load_file('../ui/StartScreen.kv.kv')
+    Builder.load_file('../ui/StartScreen.kv')
     StartApp().run()
